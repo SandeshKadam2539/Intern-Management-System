@@ -1,0 +1,9 @@
+<mat-card>
+  <h2>Batches</h2>
+  <table style="width:100%;">
+    <tr *ngFor="let b of batches">
+      <td>{{b.startDate}} — {{b.endDate}}</td>
+      <td><button mat-button color="warn" (click)="delete(b.id)">Delete</button></td>
+    </tr>
+  </table>
+</mat-card>

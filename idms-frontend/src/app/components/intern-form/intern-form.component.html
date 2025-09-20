@@ -1,0 +1,47 @@
+<mat-card>
+  <h2>Add Intern</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill" class="full">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full">
+      <mat-label>Mobile</mat-label>
+      <input matInput formControlName="mobile" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>ID Card Type</mat-label>
+      <mat-select formControlName="idCardType">
+        <mat-option value="FREE">Free</mat-option>
+        <mat-option value="PREMIUM">Premium</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Joining</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfJoining">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Batch</mat-label>
+      <mat-select formControlName="batchId">
+        <mat-option *ngFor="let b of batches" [value]="b.id">
+          {{b.startDate}} — {{b.endDate}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div style="margin-top:16px;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+    </div>
+  </form>
+</mat-card>

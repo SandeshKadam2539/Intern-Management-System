@@ -1,0 +1,14 @@
+<mat-card>
+  <h2>Create Batch</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div style="margin-top:16px;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Create</button>
+    </div>
+  </form>
+</mat-card>

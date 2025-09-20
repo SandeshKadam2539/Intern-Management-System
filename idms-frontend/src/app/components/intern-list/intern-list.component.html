@@ -1,0 +1,22 @@
+<mat-card>
+  <h2>Interns</h2>
+  <table style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Intern ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Card</th><th>DOJ</th><th>Batch</th><th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of interns">
+        <td>{{i.internId}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.idCardType}}</td>
+        <td>{{i.dateOfJoining}}</td>
+        <td>{{i.batchLabel}}</td>
+        <td><button mat-button color="warn" (click)="delete(i.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
